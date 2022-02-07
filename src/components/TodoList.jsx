@@ -1,26 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import TodoData from '../store/todo-context'
+import classes from './TodoList.module.css'
 
-const TodoList = (props) => {
+const TodoList = () => {
+	const CntxData = useContext(TodoData)
+	console.log(CntxData)
 	const onDeleteHandler = (e) => {
-		props.dispatchFl({ type: 'DELETE-ITEM', id: e.target.id })
+		CntxData.dispatch({ type: 'DELETE-ITEM', id: e.target.id })
 	}
 	const onCheckInput = (e) => {
-		props.dispatchFl({
+		CntxData.dispatch({
 			type: 'ITEM-COMPLETE',
 			check_id: e.target.id,
 		})
 	}
 	return (
-		<ul>
-			{props.state.map((el) => (
-				<li key={el.id}>
+		<ul className={classes.ul}>
+			{CntxData.state.map((el) => (
+				<li className={classes.li} key={el.id}>
 					<input
 						onChange={onCheckInput}
 						id={el.id}
 						type='checkbox'
 						checked={el.complete}
 					/>
-					{el.title}
+					<label>{el.title}</label>
 					<button onClick={onDeleteHandler} id={el.id}>
 						delete
 					</button>
