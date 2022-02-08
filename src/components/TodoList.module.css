@@ -9,6 +9,8 @@
 }
 .taskText {
 	font-family: 'Mukta', sans-serif;
+	color: black;
+	font-size: 20px;
 }
 .deleteBtn{
     width: 150px;
