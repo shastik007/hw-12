@@ -6,7 +6,7 @@ import Container from './components/UI/Container'
 function App() {
 	return (
 		<Container>
-			<h1>simple to do list </h1>
+			<h1 className='h1'>simple to do list </h1>
 			<TodoForm />
 			<TodoList />
 		</Container>

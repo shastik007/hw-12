@@ -5,14 +5,27 @@ import classes from './TodoList.module.css'
 
 const TodoItem = (props) => {
 	return (
-		<li className={classes.li} >
+		<li className={classes.li}>
 			<Checkbox
 				checked={props.el.complete}
 				id={props.el.id}
 				onChange={props.onCheckInput}
 				className={classes.checkbox}
 			/>
-			<label  className={props.el.complete ? classes.line_through : classes.taskText}>{props.el.title}</label>
+			<label
+				className={
+					props.el.complete ? classes.line_through : classes.taskText
+				}
+			>
+				{props.el.date}
+			</label>
+			<label
+				className={
+					props.el.complete ? classes.line_through : classes.taskText
+				}
+			>
+				{props.el.title}
+			</label>
 
 			<Button
 				onClick={props.onDeleteHandler}
