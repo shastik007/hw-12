@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import TodoData from '../store/todo-context'
 import classes from './TodoList.module.css'
+import TodoItem from './TodoItem'
 
 const TodoList = () => {
 	const CntxData = useContext(TodoData)
@@ -17,18 +18,12 @@ const TodoList = () => {
 	return (
 		<ul className={classes.ul}>
 			{CntxData.state.map((el) => (
-				<li className={classes.li} key={el.id}>
-					<input
-						onChange={onCheckInput}
-						id={el.id}
-						type='checkbox'
-						checked={el.complete}
-					/>
-					<label>{el.title}</label>
-					<button onClick={onDeleteHandler} id={el.id}>
-						delete
-					</button>
-				</li>
+				<TodoItem
+				    key={el.id}
+					onDeleteHandler={onDeleteHandler}
+					onCheckInput={onCheckInput}
+					el={el}
+				/>
 			))}
 		</ul>
 	)
