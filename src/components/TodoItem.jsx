@@ -12,7 +12,7 @@ const TodoItem = (props) => {
 				onChange={props.onCheckInput}
 				className={classes.checkbox}
 			/>
-			<label className={classes.taskText}>{props.el.title}</label>
+			<label  className={props.el.complete ? classes.line_through : classes.taskText}>{props.el.title}</label>
 
 			<Button
 				onClick={props.onDeleteHandler}

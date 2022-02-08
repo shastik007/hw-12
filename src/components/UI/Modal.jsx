@@ -5,9 +5,9 @@ import ReactDom from 'react-dom'
 
 const Modal = () => {
 	return (
-		<Stack sx={{ width: '100%' }} spacing={2}>
+		<Stack sx={{ width: '96%' }} spacing={2}>
 			<Alert severity='error'>
-				This is an error alert — check it out!
+				This is an error alert — field must contain at least one character !
 			</Alert>
 		</Stack>
 	)
